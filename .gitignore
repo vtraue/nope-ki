@@ -1,1 +1,13 @@
 /zig-cache
+zig-out/bin/cardgame.exe
+zig-out/bin/cardgame.pdb
+socketio_bindings
+sio.h
+sio_c.zig
+test.dll
+src/game.zig
+build.zig
+zig-cardgame.code-workspace
+zig-out/bin/huh.txt
+zig-out/bin/log.txt
+log.txt
