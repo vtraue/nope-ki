@@ -4,6 +4,7 @@ const std = @import("std");
 // declaratively construct a build graph that will be executed by an external
 // runner.
 pub fn build(b: *std.Build) void {
+
     // Standard target options allows the person running `zig build` to choose
     // what target to build for. Here we do not override the defaults, which
     // means any target is allowed, and the default is native. Other options
@@ -16,7 +17,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const exe = b.addExecutable(.{
-        .name = "nope-ki",
+        .name = "cardgame",
         // In this case the main source file is merely a path, however, in more
         // complicated build scripts, this could be a generated file.
         .root_source_file = .{ .path = "src/main.zig" },
@@ -24,16 +25,26 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    exe.linkLibC();
+    exe.addIncludePath("include");
+    exe.addLibraryPath("./lib");
+    exe.linkSystemLibrary("socketio_bindings.dll");
+    exe.linkSystemLibrary("libcurl");
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
     // step when running `zig build`).
-    exe.install();
+
+    b.installArtifact(exe);
+    //exe.install();
 
     // This *creates* a RunStep in the build graph, to be executed when another
     // step is evaluated that depends on it. The next line below will establish
     // such a dependency.
-    const run_cmd = exe.run();
 
+    //const run_cmd = exe.run();
+    const run_cmd = b.addRunArtifact(exe);
+
+    //
     // By making the run step depend on the install step, it will be run from the
     // installation directory rather than directly from within the cache directory.
     // This is not necessary, however, if the application depends on other installed
@@ -58,10 +69,31 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    exe_tests.linkLibC();
+    exe_tests.addIncludePath("include");
+    exe_tests.addLibraryPath("./lib");
+    exe_tests.linkSystemLibrary("socketio_bindings.dll");
+    exe_tests.linkSystemLibrary("libcurl");
+
+    const game_tests = b.addTest(.{
+        .root_source_file = .{ .path = "src/game.zig" },
+        .target = target,
+        .optimize = optimize,
+    });
+    game_tests.linkLibC();
+    game_tests.addIncludePath("include");
+    game_tests.addLibraryPath("./lib");
+    game_tests.linkSystemLibrary("socketio_bindings.dll");
+    game_tests.linkSystemLibrary("libcurl");
+
+    const run_game_tests = b.addRunArtifact(game_tests);
 
     // Similar to creating the run step earlier, this exposes a `test` step to
     // the `zig build --help` menu, providing a way for the user to request
     // running the unit tests.
-    const test_step = b.step("test", "Run unit tests");
+    const test_step = b.step("exe test", "Run unit tests");
     test_step.dependOn(&exe_tests.step);
+
+    var game_test_step = b.step("test", "Run game tests");
+    game_test_step.dependOn(&run_game_tests.step);
 }
