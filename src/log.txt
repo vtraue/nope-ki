@@ -1,0 +1,1023 @@
+createTournamentBlocking: Got response!
+got: [{"data":{"bestOf":5,"currentSize":1,"tournamentId":"clisrnk92019ioa071hkzg9oj"},"error":null,"success":true}]
+Error (run): error.UnexpectedToken
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"blue-green","type":"number","value":2},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3},{"color":"multi","type":"reboot","value":null},{"color":"yellow-blue","type":"number","value":2},{"color":"blue","type":"number","value":2}],"handSize":8,"lastMove":null,"lastTopCard":null,"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":8,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":null,"prevPlayerIdx":null,"prevTurnCards":[],"topCard":{"color":"red-green","type":"number","value":2}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 8 
+prev_turn_cards: 
+last_move: nullopponent_hand_size: 8
+own_hand_size: 8
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 5 
+type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 8 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+last_top_card: null
+top_card: type: twoColor,  colors: { red, green },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"blue-green","type":"number","value":2},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3},{"color":"multi","type":"reboot","value":null},{"color":"yellow-blue","type":"number","value":2},{"color":"blue","type":"number","value":2}],"handSize":8,"lastMove":{"card1":{"color":"green","type":"number","value":2},"card2":{"color":"yellow-green","type":"number","value":1},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"green","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"green","type":"number","value":2},{"color":"yellow-green","type":"number","value":1}],"topCard":{"color":"yellow-green","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 8 
+prev_player: username: nico, handsize: 6 
+prev_turn_cards: type: oneColor,  colors: { green, null },  number: 2, priority: 3 , type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { green, null },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+opponent_hand_size: 6
+own_hand_size: 8
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 5 
+type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 8 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+last_top_card: type: oneColor,  colors: { green, null },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+Making move...
+
+I played: type: restart,  colors: { multi, null },  number: 0, priority: 1 
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"blue-green","type":"number","value":2},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3},{"color":"yellow-blue","type":"number","value":2},{"color":"blue","type":"number","value":2}],"handSize":7,"lastMove":{"card1":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"card2":null,"card3":null,"reason":"Getting rid of useless action cards","type":"put"},"lastTopCard":{"color":"yellow-green","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}],"topCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 6 
+prev_player: username: Vivien, handsize: 7 
+prev_turn_cards: type: restart,  colors: { multi, null },  number: 0, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+opponent_hand_size: 7
+own_hand_size: 7
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 5 
+type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 8 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+last_top_card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"blue-green","type":"number","value":2},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3},{"color":"yellow-blue","type":"number","value":2},{"color":"blue","type":"number","value":2}],"handSize":7,"lastMove":{"card1":{"color":"yellow-blue","type":"number","value":3},"card2":null,"card3":null,"reason":"Card with best move_utility: 2","type":"put"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"yellow-blue","type":"number","value":3}],"topCard":{"color":"yellow-blue","type":"number","value":3}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 7 
+prev_player: username: nico, handsize: 5 
+prev_turn_cards: type: twoColor,  colors: { yellow, blue },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, blue },  number: 3, priority: 3 
+opponent_hand_size: 5
+own_hand_size: 7
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+last_top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+top_card: type: twoColor,  colors: { yellow, blue },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+Not playing safe
+I played: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { blue, null },  number: 2, priority: 4 
+Card: type: twoColor,  colors: { yellow, blue },  number: 2, priority: 7 
+Card: type: twoColor,  colors: { blue, green },  number: 2, priority: 7 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3}],"handSize":4,"lastMove":{"card1":{"color":"blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"card2":{"color":"yellow-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"card3":{"color":"blue-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"reason":"42","type":"put"},"lastTopCard":{"color":"yellow-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},{"color":"yellow-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},{"color":"blue-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}],"topCard":{"color":"blue-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 5 
+prev_player: username: Vivien, handsize: 4 
+prev_turn_cards: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 , type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 , type: twoColor,  colors: { blue, green },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { blue, green },  number: 2, priority: 3 
+opponent_hand_size: 4
+own_hand_size: 4
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+last_top_card: type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { blue, green },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3}],"handSize":4,"lastMove":{"card1":{"color":"blue","type":"number","value":2},"card2":{"color":"blue-green","type":"number","value":3},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"blue","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"blue","type":"number","value":2},{"color":"blue-green","type":"number","value":3}],"topCard":{"color":"blue-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 4 
+prev_player: username: nico, handsize: 3 
+prev_turn_cards: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 , type: twoColor,  colors: { blue, green },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { blue, green },  number: 3, priority: 3 
+opponent_hand_size: 3
+own_hand_size: 4
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+last_top_card: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { blue, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+I played: Making Move: game.MoveType.take
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":80,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3},{"color":"green","type":"number","value":1},{"color":"yellow-green","type":"number","value":3},{"color":"blue-green","type":"number","value":1}],"handSize":5,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"42","type":"take"},"lastTopCard":{"color":"blue","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":5,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[],"topCard":{"color":"blue-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 80
+current_player: username: Vivien, handsize: 5 
+prev_player: username: Vivien, handsize: 5 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 5
+own_hand_size: 5
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { blue, green },  number: 1, priority: 8 
+last_top_card: type: oneColor,  colors: { blue, null },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { blue, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { blue, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+Playing safe
+Lowest risk card: type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { blue, green },  number: 1, priority: 8 
+Card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+Card: type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":80,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3}],"handSize":2,"lastMove":{"card1":{"color":"blue-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card2":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"card3":{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"reason":"42","type":"put"},"lastTopCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"blue-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}],"topCard":{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}}GameState: 
+
+draw_pile_size: 80
+current_player: username: nico, handsize: 3 
+prev_player: username: Vivien, handsize: 2 
+prev_turn_cards: type: twoColor,  colors: { blue, green },  number: 1, priority: 3 , type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 , type: oneColor,  colors: { green, null },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { blue, green },  number: 1, priority: 3 
+Card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+Card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+opponent_hand_size: 2
+own_hand_size: 2
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+last_top_card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+top_card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":80,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3}],"handSize":2,"lastMove":{"card1":{"color":"red-green","type":"number","value":3},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-green","type":"number","value":3}],"topCard":{"color":"red-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 80
+current_player: username: Vivien, handsize: 2 
+prev_player: username: nico, handsize: 2 
+prev_turn_cards: type: twoColor,  colors: { red, green },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, green },  number: 3, priority: 3 
+opponent_hand_size: 2
+own_hand_size: 2
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+last_top_card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+I played: Making Move: game.MoveType.take
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":79,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[{"color":"red","type":"number","value":3},{"color":"red-yellow","type":"number","value":3},{"color":"red-blue","type":"number","value":1}],"handSize":3,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"42","type":"take"},"lastTopCard":{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":3,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[],"topCard":{"color":"red-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 79
+current_player: username: Vivien, handsize: 3 
+prev_player: username: Vivien, handsize: 3 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 3
+own_hand_size: 3
+own_hand: 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+last_top_card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+Playing safe
+Lowest risk card: type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+I played: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+Card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 6 
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":79,"gameId":"clisro5vm019qoa07wvip6xqx","hand":[],"handSize":0,"lastMove":{"card1":{"color":"red","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"card2":{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"card3":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"reason":"42","type":"put"},"lastTopCard":{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":0,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"red","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}],"topCard":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}}GameState: 
+
+draw_pile_size: 79
+current_player: username: nico, handsize: 2 
+prev_player: username: Vivien, handsize: 0 
+prev_turn_cards: type: oneColor,  colors: { red, null },  number: 3, priority: 3 , type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 , type: twoColor,  colors: { red, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { red, null },  number: 3, priority: 3 
+Card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+opponent_hand_size: 0
+own_hand_size: 0
+own_hand: 
+last_top_card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Game ended: status: {"message":"nico won the game of round 1","winner":{"id":"clh3c80s8000gny07t67o4cvf","points":1,"username":"nico"}}
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisror68019soa07vyitrza9","hand":[{"color":"blue-green","type":"number","value":1},{"color":"red","type":"number","value":2},{"color":"yellow","type":"number","value":1},{"color":"red-green","type":"number","value":3},{"color":"blue","type":"number","value":3},{"color":"red","type":"number","value":1},{"color":"blue","type":"number","value":1},{"color":"red-green","type":"number","value":2}],"handSize":8,"lastMove":null,"lastTopCard":null,"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":8,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":null,"prevPlayerIdx":null,"prevTurnCards":[],"topCard":{"color":"red-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 8 
+prev_turn_cards: 
+last_move: nullopponent_hand_size: 8
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { blue, green },  number: 1, priority: 6 
+type: oneColor,  colors: { red, null },  number: 2, priority: 4 
+type: oneColor,  colors: { yellow, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 3, priority: 8 
+type: oneColor,  colors: { blue, null },  number: 3, priority: 5 
+type: oneColor,  colors: { red, null },  number: 1, priority: 3 
+type: oneColor,  colors: { blue, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 2, priority: 7 
+last_top_card: null
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Game ended: status: {"message":"nico is disqualified from the game for cheating. This means that Vivien won this game","winner":{"id":"clioyera900t0lg07372ln5xc","points":0,"username":"Vivien"}}
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisror68019soa07vyitrza9","hand":[{"color":"blue-green","type":"number","value":1},{"color":"red","type":"number","value":2},{"color":"yellow","type":"number","value":1},{"color":"red-green","type":"number","value":3},{"color":"blue","type":"number","value":3},{"color":"red","type":"number","value":1},{"color":"blue","type":"number","value":1},{"color":"red-green","type":"number","value":2}],"handSize":8,"lastMove":null,"lastTopCard":null,"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":8,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":null,"prevPlayerIdx":null,"prevTurnCards":[],"topCard":{"color":"red-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 8 
+prev_turn_cards: 
+last_move: nullopponent_hand_size: 8
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { blue, green },  number: 1, priority: 6 
+type: oneColor,  colors: { red, null },  number: 2, priority: 4 
+type: oneColor,  colors: { yellow, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 3, priority: 8 
+type: oneColor,  colors: { blue, null },  number: 3, priority: 5 
+type: oneColor,  colors: { red, null },  number: 1, priority: 3 
+type: oneColor,  colors: { blue, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 2, priority: 7 
+last_top_card: null
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Game ended: status: {"message":"Vivien won the game of round 2","winner":{"id":"clioyera900t0lg07372ln5xc","points":1,"username":"Vivien"}}
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"multi","type":"joker","value":1},{"color":"red-blue","type":"number","value":2},{"color":"multi","type":"joker","value":1}],"handSize":8,"lastMove":null,"lastTopCard":null,"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":8,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":null,"prevPlayerIdx":null,"prevTurnCards":[],"topCard":{"color":"red-green","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 8 
+prev_turn_cards: 
+last_move: nullopponent_hand_size: 8
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 6 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+last_top_card: null
+top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"multi","type":"joker","value":1},{"color":"red-blue","type":"number","value":2},{"color":"multi","type":"joker","value":1}],"handSize":8,"lastMove":{"card1":{"color":"red-blue","type":"number","value":1},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"red-green","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":7,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-blue","type":"number","value":1}],"topCard":{"color":"red-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 8 
+prev_player: username: nico, handsize: 7 
+prev_turn_cards: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+opponent_hand_size: 7
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 6 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+last_top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+Not playing safe
+I played: Making Move: game.MoveType.put
+Card: type: joker,  colors: { multi, null },  number: 1, priority: 9 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2},{"color":"multi","type":"joker","value":1}],"handSize":7,"lastMove":{"card1":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"red-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":7,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1}],"topCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 7 
+prev_player: username: Vivien, handsize: 7 
+prev_turn_cards: type: joker,  colors: { multi, null },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+opponent_hand_size: 7
+own_hand_size: 7
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 6 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+last_top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+top_card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2},{"color":"multi","type":"joker","value":1}],"handSize":7,"lastMove":{"card1":{"color":"red-blue","type":"number","value":1},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-blue","type":"number","value":1}],"topCard":{"color":"red-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 7 
+prev_player: username: nico, handsize: 6 
+prev_turn_cards: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+opponent_hand_size: 6
+own_hand_size: 7
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 6 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+last_top_card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: joker,  colors: { multi, null },  number: 1, priority: 9 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+Not playing safe
+I played: Making Move: game.MoveType.put
+Card: type: joker,  colors: { multi, null },  number: 1, priority: 9 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":6,"lastMove":{"card1":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"red-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":6,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1}],"topCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 6 
+prev_player: username: Vivien, handsize: 6 
+prev_turn_cards: type: joker,  colors: { multi, null },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+opponent_hand_size: 6
+own_hand_size: 6
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 6 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 8 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+top_card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":6,"lastMove":{"card1":{"color":"green","type":"number","value":1},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"joker","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":6,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"green","type":"number","value":1}],"topCard":{"color":"green","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 6 
+prev_player: username: nico, handsize: 5 
+prev_turn_cards: type: oneColor,  colors: { green, null },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+opponent_hand_size: 5
+own_hand_size: 6
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 8 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: joker,  colors: { multi, null },  number: 1, priority: 3 
+top_card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { yellow, green },  number: 1, priority: 8 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+Not playing safe
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 8 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":5,"lastMove":{"card1":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"green","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":5,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}],"topCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 5 
+prev_player: username: Vivien, handsize: 5 
+prev_turn_cards: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+opponent_hand_size: 5
+own_hand_size: 5
+own_hand: 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":5,"lastMove":{"card1":{"color":"multi","type":"reboot","value":null},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":4,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":5,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"multi","type":"reboot","value":null}],"topCard":{"color":"multi","type":"reboot","value":null}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 5 
+prev_player: username: nico, handsize: 4 
+prev_turn_cards: type: restart,  colors: { multi, null },  number: 0, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+opponent_hand_size: 4
+own_hand_size: 5
+own_hand: 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { yellow, green },  number: 1, priority: 3 
+top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":4,"lastMove":{"card1":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"multi","type":"reboot","value":null},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":4,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}],"topCard":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 4 
+prev_player: username: Vivien, handsize: 4 
+prev_turn_cards: type: twoColor,  colors: { red, green },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+opponent_hand_size: 4
+own_hand_size: 4
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"yellow-green","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"yellow-green","type":"number","value":3},{"color":"red-blue","type":"number","value":2}],"handSize":4,"lastMove":{"card1":{"color":"green","type":"number","value":2},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"green","type":"number","value":2}],"topCard":{"color":"green","type":"number","value":2}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 4 
+prev_player: username: nico, handsize: 3 
+prev_turn_cards: type: oneColor,  colors: { green, null },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { green, null },  number: 2, priority: 3 
+opponent_hand_size: 3
+own_hand_size: 4
+own_hand: 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+top_card: type: oneColor,  colors: { green, null },  number: 2, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+Playing safe
+Lowest risk card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+Card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 6 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":2,"lastMove":{"card1":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"card2":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3},"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3}],"topCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":3}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 3 
+prev_player: username: Vivien, handsize: 2 
+prev_turn_cards: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 , type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+opponent_hand_size: 2
+own_hand_size: 2
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrox29019uoa07av6758is","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":2,"lastMove":{"card1":{"color":"red-yellow","type":"number","value":3},"card2":{"color":"yellow-blue","type":"number","value":2},"card3":{"color":"red-yellow","type":"number","value":2},"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"yellow-blue","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":0,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-yellow","type":"number","value":3},{"color":"yellow-blue","type":"number","value":2},{"color":"red-yellow","type":"number","value":2}],"topCard":{"color":"red-yellow","type":"number","value":2}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 2 
+prev_player: username: nico, handsize: 0 
+prev_turn_cards: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 , type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 , type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+Card: type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+opponent_hand_size: 0
+own_hand_size: 2
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { yellow, blue },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+Game ended: status: {"message":"Vivien won the game of round 3","winner":{"id":"clioyera900t0lg07372ln5xc","points":2,"username":"Vivien"}}
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"multi","type":"reboot","value":null},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"multi","type":"reboot","value":null},{"color":"red-green","type":"number","value":1}],"handSize":8,"lastMove":null,"lastTopCard":null,"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":8,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":null,"prevPlayerIdx":null,"prevTurnCards":[],"topCard":{"color":"yellow-green","type":"number","value":2}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 8 
+prev_turn_cards: 
+last_move: nullopponent_hand_size: 8
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 6 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+last_top_card: null
+top_card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"multi","type":"reboot","value":null},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"multi","type":"reboot","value":null},{"color":"red-green","type":"number","value":1}],"handSize":8,"lastMove":{"card1":{"color":"yellow","type":"number","value":2},"card2":{"color":"yellow-blue","type":"number","value":1},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"yellow","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":8,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"yellow","type":"number","value":2},{"color":"yellow-blue","type":"number","value":1}],"topCard":{"color":"yellow-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 8 
+prev_player: username: nico, handsize: 6 
+prev_turn_cards: type: oneColor,  colors: { yellow, null },  number: 2, priority: 3 , type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { yellow, null },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+opponent_hand_size: 6
+own_hand_size: 8
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 6 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+last_top_card: type: oneColor,  colors: { yellow, null },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+Making move...
+
+I played: type: restart,  colors: { multi, null },  number: 0, priority: 1 
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"multi","type":"reboot","value":null},{"color":"red-green","type":"number","value":1}],"handSize":7,"lastMove":{"card1":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"card2":null,"card3":null,"reason":"Getting rid of useless action cards","type":"put"},"lastTopCard":{"color":"yellow-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":6,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}],"topCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 6 
+prev_player: username: Vivien, handsize: 7 
+prev_turn_cards: type: restart,  colors: { multi, null },  number: 0, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+opponent_hand_size: 7
+own_hand_size: 7
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 6 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+last_top_card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"multi","type":"reboot","value":null},{"color":"red-green","type":"number","value":1}],"handSize":7,"lastMove":{"card1":{"color":"red-yellow","type":"number","value":3},"card2":null,"card3":null,"reason":"Card with best move_utility: 2","type":"put"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-yellow","type":"number","value":3}],"topCard":{"color":"red-yellow","type":"number","value":3}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 7 
+prev_player: username: nico, handsize: 5 
+prev_turn_cards: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+opponent_hand_size: 5
+own_hand_size: 7
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: restart,  colors: { multi, null },  number: 0, priority: 1 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+last_top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+Making move...
+
+I played: type: restart,  colors: { multi, null },  number: 0, priority: 1 
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"red-green","type":"number","value":1}],"handSize":6,"lastMove":{"card1":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"card2":null,"card3":null,"reason":"Getting rid of useless action cards","type":"put"},"lastTopCard":{"color":"red-yellow","type":"number","value":3},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":6,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}],"topCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null}}GameState: 
+
+draw_pile_size: 81
+current_player: username: nico, handsize: 5 
+prev_player: username: Vivien, handsize: 6 
+prev_turn_cards: type: restart,  colors: { multi, null },  number: 0, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+opponent_hand_size: 6
+own_hand_size: 6
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 6 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+last_top_card: type: twoColor,  colors: { red, yellow },  number: 3, priority: 3 
+top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":81,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"red-green","type":"number","value":1}],"handSize":6,"lastMove":{"card1":{"color":"yellow-green","type":"number","value":3},"card2":null,"card3":null,"reason":"Card with best move_utility: 2","type":"put"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":4,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":6,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"yellow-green","type":"number","value":3}],"topCard":{"color":"yellow-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 81
+current_player: username: Vivien, handsize: 6 
+prev_player: username: nico, handsize: 4 
+prev_turn_cards: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+opponent_hand_size: 4
+own_hand_size: 6
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 5 
+type: twoColor,  colors: { red, green },  number: 1, priority: 8 
+last_top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+I played: Making Move: game.MoveType.take
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":80,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2},{"color":"green","type":"number","value":1},{"color":"red-green","type":"number","value":1},{"color":"yellow-green","type":"number","value":2}],"handSize":7,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"42","type":"take"},"lastTopCard":{"color":"multi","select":null,"selectValue":null,"selectedColor":null,"type":"reboot","value":null},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":4,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":7,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[],"topCard":{"color":"yellow-green","type":"number","value":3}}GameState: 
+
+draw_pile_size: 80
+current_player: username: Vivien, handsize: 7 
+prev_player: username: Vivien, handsize: 7 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 7
+own_hand_size: 7
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 6 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+last_top_card: type: restart,  colors: { multi, null },  number: 0, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 3, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+Not playing safe
+I played: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+Card: type: twoColor,  colors: { red, green },  number: 1, priority: 6 
+Card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 7 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":80,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":4,"lastMove":{"card1":{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card2":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card3":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"reason":"42","type":"put"},"lastTopCard":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":4,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}],"topCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 80
+current_player: username: nico, handsize: 4 
+prev_player: username: Vivien, handsize: 4 
+prev_turn_cards: type: oneColor,  colors: { green, null },  number: 1, priority: 3 , type: twoColor,  colors: { red, green },  number: 1, priority: 3 , type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { green, null },  number: 1, priority: 3 
+Card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+Card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+opponent_hand_size: 4
+own_hand_size: 4
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":79,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":4,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"No Cards to put","type":"take"},"lastTopCard":{"color":"red-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":5,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[],"topCard":{"color":"yellow-green","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 79
+current_player: username: nico, handsize: 5 
+prev_player: username: nico, handsize: 5 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 5
+own_hand_size: 4
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, green },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { yellow, green },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":79,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-blue","type":"number","value":1},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":4,"lastMove":{"card1":{"color":"red-yellow","type":"number","value":2},"card2":{"color":"red-yellow","type":"number","value":1},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"red-yellow","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":4,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-yellow","type":"number","value":2},{"color":"red-yellow","type":"number","value":1}],"topCard":{"color":"red-yellow","type":"number","value":1}}GameState: 
+
+draw_pile_size: 79
+current_player: username: Vivien, handsize: 4 
+prev_player: username: nico, handsize: 3 
+prev_turn_cards: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 , type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 
+opponent_hand_size: 3
+own_hand_size: 4
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+Playing safe
+Lowest risk card: type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 8 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":79,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":3,"lastMove":{"card1":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"red-yellow","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":3,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}],"topCard":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1}}GameState: 
+
+draw_pile_size: 79
+current_player: username: nico, handsize: 3 
+prev_player: username: Vivien, handsize: 3 
+prev_turn_cards: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+opponent_hand_size: 3
+own_hand_size: 3
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":79,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2},{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":3,"lastMove":{"card1":{"color":"red-blue","type":"number","value":1},"card2":null,"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":3,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-blue","type":"number","value":1}],"topCard":{"color":"red-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 79
+current_player: username: Vivien, handsize: 3 
+prev_player: username: nico, handsize: 2 
+prev_turn_cards: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+opponent_hand_size: 2
+own_hand_size: 3
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+Playing safe
+Lowest risk card: type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":79,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":2,"lastMove":{"card1":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"red-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}],"topCard":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 79
+current_player: username: nico, handsize: 2 
+prev_player: username: Vivien, handsize: 2 
+prev_turn_cards: type: twoColor,  colors: { red, blue },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, blue },  number: 2, priority: 3 
+opponent_hand_size: 2
+own_hand_size: 2
+own_hand: 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":78,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":2,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"No Cards to put","type":"take"},"lastTopCard":{"color":"red-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":3,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[],"topCard":{"color":"red-blue","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 78
+current_player: username: nico, handsize: 3 
+prev_player: username: nico, handsize: 3 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 3
+own_hand_size: 2
+own_hand: 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, blue },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, blue },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":78,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-yellow","type":"number","value":2},{"color":"red-blue","type":"number","value":2}],"handSize":2,"lastMove":{"card1":{"color":"blue","type":"number","value":1},"card2":{"color":"yellow-blue","type":"number","value":1},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":1,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":2,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"blue","type":"number","value":1},{"color":"yellow-blue","type":"number","value":1}],"topCard":{"color":"yellow-blue","type":"number","value":1}}GameState: 
+
+draw_pile_size: 78
+current_player: username: Vivien, handsize: 2 
+prev_player: username: nico, handsize: 1 
+prev_turn_cards: type: oneColor,  colors: { blue, null },  number: 1, priority: 3 , type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: oneColor,  colors: { blue, null },  number: 1, priority: 3 
+Card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+opponent_hand_size: 1
+own_hand_size: 2
+own_hand: 
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: oneColor,  colors: { blue, null },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+Making move...
+Playable cards:
+type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+Playing safe
+Lowest risk card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+I played: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 7 
+
+Done
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":78,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2}],"handSize":1,"lastMove":{"card1":{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2},"card2":null,"card3":null,"reason":"42","type":"put"},"lastTopCard":{"color":"yellow-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":1,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":1,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"prevPlayerIdx":1,"prevTurnCards":[{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}],"topCard":{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 78
+current_player: username: nico, handsize: 1 
+prev_player: username: Vivien, handsize: 1 
+prev_turn_cards: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+opponent_hand_size: 1
+own_hand_size: 1
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"currentPlayerIdx":0,"drawPileSize":77,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2}],"handSize":1,"lastMove":{"card1":null,"card2":null,"card3":null,"reason":"No Cards to put","type":"take"},"lastTopCard":{"color":"yellow-blue","type":"number","value":1},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":2,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":1,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[],"topCard":{"color":"red-yellow","select":null,"selectValue":null,"selectedColor":null,"type":"number","value":2}}GameState: 
+
+draw_pile_size: 77
+current_player: username: nico, handsize: 2 
+prev_player: username: nico, handsize: 2 
+prev_turn_cards: 
+last_move: Making Move: game.MoveType.take
+opponent_hand_size: 2
+own_hand_size: 1
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { yellow, blue },  number: 1, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 2, priority: 3 
+
+Reading game state...
+raw json in readGameStateTokenStream: {"currentPlayer":{"id":"clioyera900t0lg07372ln5xc","username":"Vivien"},"currentPlayerIdx":1,"drawPileSize":77,"gameId":"clisrpknd019woa07zlvyislt","hand":[{"color":"red-blue","type":"number","value":2}],"handSize":1,"lastMove":{"card1":{"color":"red-green","type":"number","value":2},"card2":{"color":"red-yellow","type":"number","value":1},"card3":null,"reason":"Fuck you","type":"put"},"lastTopCard":{"color":"red-green","type":"number","value":2},"matchId":"clisro5pu019ooa076a6hk9xs","players":[{"handSize":0,"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},{"handSize":1,"id":"clioyera900t0lg07372ln5xc","username":"Vivien"}],"prevPlayer":{"id":"clh3c80s8000gny07t67o4cvf","username":"nico"},"prevPlayerIdx":0,"prevTurnCards":[{"color":"red-green","type":"number","value":2},{"color":"red-yellow","type":"number","value":1}],"topCard":{"color":"red-yellow","type":"number","value":1}}GameState: 
+
+draw_pile_size: 77
+current_player: username: Vivien, handsize: 1 
+prev_player: username: nico, handsize: 0 
+prev_turn_cards: type: twoColor,  colors: { red, green },  number: 2, priority: 3 , type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 , 
+last_move: Making Move: game.MoveType.put
+Card: type: twoColor,  colors: { red, green },  number: 2, priority: 3 
+Card: type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 
+opponent_hand_size: 0
+own_hand_size: 1
+own_hand: 
+type: twoColor,  colors: { red, blue },  number: 2, priority: 7 
+last_top_card: type: twoColor,  colors: { red, green },  number: 2, priority: 3 
+top_card: type: twoColor,  colors: { red, yellow },  number: 1, priority: 3 
+Game ended: status: {"message":"Vivien won the game of round 4","winner":{"id":"clioyera900t0lg07372ln5xc","points":3,"username":"Vivien"}}

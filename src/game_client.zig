@@ -28,7 +28,7 @@ pub const TournamentCreationResponse = struct {
     success: bool,
 };
 
-pub const TournamentCreationRequest = struct { numBestOfMatches: u32 };
+pub const TournamentCreationRequest = struct { numBestOfMatches: u32 = 5};
 
 pub const Tournament = struct {};
 
@@ -70,8 +70,8 @@ pub fn tokenVerify(alloc: std.mem.Allocator, curl: *http.CurlHandle, request: Ve
     if (http_response.status_code != 200) {
         return error.TokenRefused;
     }
-    var stream = std.json.TokenStream.init(http_response.data.items);
-    const response = try std.json.parse(VerifyTokenResponse, &stream, .{ .allocator = alloc });
+    //var stream = std.json.TokenStream.init(http_response.data.items);
+    const response = try std.json.parseFromSlice(VerifyTokenResponse, alloc, http_response.data.items, .{});
 
     return response;
 }
@@ -100,7 +100,7 @@ pub fn userRegister(alloc: std.mem.Allocator, curl: *http.CurlHandle, user_data:
 //    try userRegister(alloc.allocator(), &curl, user);
 //}
 test "loginAndVerifyUser" {
-    std.debug.print("heya", .{});
+    ////std.debug.print("heya", .{});
     var alloc = std.heap.GeneralPurposeAllocator(.{}){};
     var curl = try http.CurlHandle.init();
     const user_data = LoginUserData{ .username = "Ziggy", .password = "123456" };
@@ -112,7 +112,8 @@ test "loginAndVerifyUser" {
     };
 
     const tok_response: VerifyTokenResponse = try tokenVerify(alloc.allocator(), &curl, VerifyTokenRequest{ .token = login_response.accessToken });
-    std.debug.print("user response name: {s}\n", .{tok_response.user.username});
+    _ = tok_response;
+    ////std.debug.print("user response name: {s}\n", .{tok_response.user.username});
 }
 
 pub fn userLogin(alloc: std.mem.Allocator, curl: *http.CurlHandle, request: LoginUserRequest) !LoginUserResponse {
@@ -120,9 +121,8 @@ pub fn userLogin(alloc: std.mem.Allocator, curl: *http.CurlHandle, request: Logi
     var http_request = http.Request{ .url = request.url, .request_type = http.RequestType{ .Post = login_str }, .verbose_log = false, };
     const http_response = try curl.send_request(alloc, &http_request);
     //TODO: Handle errors correctly
-    std.debug.print("http response: {}\n", .{http_response});
-    var stream = std.json.TokenStream.init(http_response.data.items);
-    const repsonse = try std.json.parse(LoginUserResponse, &stream, .{ .allocator = alloc });
+    //var stream = std.json.TokenStream.init(http_response.data.items);
+    const repsonse = try std.json.parseFromSlice(LoginUserResponse, alloc, http_response.data.items, .{});
 
     return repsonse;
 }
@@ -135,7 +135,6 @@ pub fn createTournamentBlocking(
     _ = tournament_info;
     //const req_str = try std.json.stringifyAlloc(alloc, tournament_info, .{});
     const req_str = "5"; 
-    const context = @fieldParentPtr(main.App, "socket", socket);
 
     socket.client.emit(.{
         .payload = sio.Payload {.String = util.RustString.from_slice(req_str)},
@@ -144,16 +143,14 @@ pub fn createTournamentBlocking(
     });
     const ev = socket.acks.block_pop_front();
 
-    context.notify("All done", .{});
-    context.notify("createTournamentBlocking: Got response!\n", .{});
+    std.debug.print("createTournamentBlocking: Got response!\n", .{});
 
     switch (ev) {
         .String => |str| {
             const response_string = str.as_string_slice();
-            const json_string = response_string[1 .. response_string.len - 1];
-            context.notify("got: {s}\n", .{json_string});
-            var stream = std.json.TokenStream.init(json_string);
-            const response = try std.json.parse(TournamentCreationResponse, &stream, .{ .allocator = alloc });
+            std.debug.print("got: {s}\n", .{response_string});
+            //var stream = std.json.TokenStream.init(json_string);
+            const response = try std.json.parseFromSlice(TournamentCreationResponse, alloc, response_string, .{});
             return response;
         },
         .Binary => |_| unreachable,
@@ -171,66 +168,63 @@ fn createTournament(alloc: std.mem.Allocator, client: *sio.SocketIO, num_best_of
     _ = response;
 }
 
-pub fn joinTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO, tournament_id: []const u8) !void {
+pub fn joinTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO, tournament_id: []const u8) ![]u8{
     _ = alloc;
-    const context = @fieldParentPtr(main.App, "socket", socket);
 
     socket.client.emit(.{
         .payload = sio.Payload {.String = util.RustString.from_slice(tournament_id)},
         .event = sio.EventType{.Custom = util.RustString.from_slice("tournament:join")}
     });  
     const ev = socket.acks.block_pop_front();
-    context.notify("joinTournament: Got response!\n", .{});
+    ////std.debug.print("joinTournament: Got response!\n", .{});
     switch(ev) {
         .String => |str| {
-            const response_str = str.as_string_slice();
-            context.notify("got: {s}\n", .{response_str});
+            return str.as_string_slice();
+            ////std.debug.print("got: {s}\n", .{response_str});
         },
         .Binary => |_| unreachable,
     }
 
 }
 
-pub fn leaveTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO) !void {
+pub fn leaveTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO) ![]u8 {
     _ = alloc;
-    const context = @fieldParentPtr(main.App, "socket", socket);
     socket.client.emit(.{
         .payload = null,
         .event = sio.EventType {.Custom = util.RustString.from_slice("tournament:leave")}
     });
 
     const ev = socket.acks.block_pop_front();
-    context.notify("leaveTournament: Got response!\n", .{});   
+    ////std.debug.print("leaveTournament: Got response!\n", .{});   
     switch(ev) {
         .String => |str| {
-            const response_str = str.as_string_slice();
-            context.notify("got: {s}\n", .{response_str});
+            return str.as_string_slice();
+            ////std.debug.print("got: {s}\n", .{response_str});
         },
         .Binary => |_| unreachable,
     }     
 }
 
-pub fn startTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO) !void {
+pub fn startTournament(alloc: std.mem.Allocator, socket: *sio.SocketIO) ![]const u8 {
     _ = alloc;
         socket.client.emit(.{
         .payload = null,
         .event = sio.EventType {.Custom = util.RustString.from_slice("tournament:start")}
     });
-    const context = @fieldParentPtr(main.App, "socket", socket);
     const ev = socket.acks.block_pop_front();
-    context.notify("startTournament: Got response!\n", .{});   
+    ////std.debug.print("startTournament: Got response!\n", .{});   
     switch(ev) {
         .String => |str| {
             const response_str = str.as_string_slice();
-            context.notify("got: {s}\n", .{response_str});
+            return response_str;
+            ////std.debug.print("got: {s}\n", .{response_str});
         },
         .Binary => |_| unreachable,
     }
 }
 
 pub fn acceptMatchInvite(alloc: std.mem.Allocator, player_id: []const u8, socket: *sio.SocketIO, event: *const sio.EventData) !void {
-    const context = @fieldParentPtr(main.App, "socket", socket);
-    context.notify("accept match invite", .{});    
+    ////std.debug.print("accept match invite", .{});    
     const payload_string = try std.json.stringifyAlloc(alloc, .{.accepted = true, .id =  player_id}, .{});
 
     const payload = sio.Payload {
@@ -238,5 +232,5 @@ pub fn acceptMatchInvite(alloc: std.mem.Allocator, player_id: []const u8, socket
    };  
 
     socket.client.ack_message(event.id.? , payload);
-    context.notify("accept match invite DONE", .{});    
+    ////std.debug.print("accept match invite DONE", .{});    
 }

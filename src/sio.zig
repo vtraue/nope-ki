@@ -206,17 +206,17 @@ pub fn inner_event_callback(event: [*c]const c.struct_SioEventData, user_data: c
     const event_ptr = @ptrCast(*const c.SioEventData, event);
     var queue = get_queue(EventData, user_data); 
 
-    queue.push_back(EventData.from_rust(event_ptr.*)) catch |err| std.debug.print("Unable to push event: {}", .{err}); 
+    queue.push_back(EventData.from_rust(event_ptr.*)) catch unreachable; 
 }
 
 //TODO: Get pointer/copy of original event 
 pub fn inner_ack_callback(message: [*c]const c.struct_SioPayload, user_data: c.AckCallbackData) callconv(.C) void {
-    std.debug.print("ack!\n", .{});
+    //std.debug.print("ack!\n", .{});
 
     const payload_ptr = @ptrCast(*const c.SioPayload, message);
     var queue = get_queue(Payload, user_data); 
 
-    queue.push_back(Payload.from_rust(payload_ptr.*)) catch |err| std.debug.print("Unable to push awk {}", .{err});
+    queue.push_back(Payload.from_rust(payload_ptr.*)) catch unreachable; 
 }
 
 pub fn create_client(alloc: std.mem.Allocator, parameters: ClientParameters) !SocketIO {

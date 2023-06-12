@@ -1,243 +1,547 @@
 const std = @import("std");
-const win = @import("win32.zig");
-const common = @import("common.zig");
-const ESC = "\x1b";
-const CSI = "\x1b[";
-const OSC = "\x1b]";
-const ST = "\x1b\x5C";
-pub const TerminalBufferedWriter = std.io.BufferedWriter(4096, std.fs.File.Writer);
-pub const TerminalBufferedReader = std.io.BufferedReader(4096, std.fs.File.Reader);
+const nc = @cImport({
+    @cInclude("ncurses.h");
+    @cInclude("menu.h");
+    @cInclude("locale.h");
+}); 
 
-pub const Cursor = struct {
-    blinking: bool = false,
-    visible: bool = true,
-    position: common.Position = .{.x = 0, .y = 0}
+pub const Color = enum {
+    Black,
+    Red,
+    Green,
+    Yellow,
+    Blue,
+    Magenta,
+    Cyan,
+    White
 };
 
-pub const ColorCode = enum(u32) {
-    Black = 0,
-    Red = 1,
-    Green = 2,
-    Yellow = 3,
-    Blue = 4,
-    Magenta = 5,
-    Cyan = 6,
-    White = 7,
-    Ex = 8,
-    Default = 9
-};
-pub const ColorMode = enum(u32) {
-    Foreground = 30,
-    Background = 40,
-    BrightForeground = 90,
-    BrightBackground = 100
+pub const CharAttributes = enum {
+    Normal,
+    Standout,
+    Underline,
+    Reverse,
+    Blink,
+    Dim,
+    Bold,
+    Protect,
+    Invis,
+    AltCharSet,
+    CharText
+
 };
 
-pub const Format = struct {
-    bold: bool = false,
-    underline: bool = false,
-    swapColors: bool = false,
-    colorForeground: ColorCode = ColorCode.Default,
-    colorBackground: ColorCode = ColorCode.Default,
+
+pub const ColorPair = struct {
+    fg: Color,
+    bg: Color
 };
 
+pub const CursesError = error {
+    RoutineReturnedError
+};
+
+pub fn tryCurses(err: c_int) !void {
+    if(err == -1) {
+        return error.RoutineReturnedError;
+    }
+}
 pub const Terminal = struct {
-    stdout_file: std.fs.File,
-    bw:  TerminalBufferedWriter,
-    cursor: Cursor = .{},    
-    title: ?[]const u8 = null,
-    
-    stdin_file: std.fs.File,
-    br: TerminalBufferedReader,
-    textMode: bool = false,
-    inputBuffer: []win.INPUT_RECORD,
-    
-    stderr_file: std.fs.File,
-    log_file: ?std.fs.File,
-
-    pub fn init(alloc: std.mem.Allocator, title: ?[]const u8) !Terminal{
-        try win.enableVTMode();
-
-        const stdout_file = std.io.getStdOut();
-        var bw = std.io.bufferedWriter(stdout_file.writer());
-
-        var stdin_file = std.io.getStdIn();
-        var br = std.io.bufferedReader(stdin_file.reader());
-
-        var stderr_file = std.io.getStdOut();
-        var log_file: ?std.fs.File = null;
-
-        log_file = std.fs.cwd().createFile("log.txt", .{}) catch null;
-
-        var term: Terminal = .{
-            .inputBuffer = try alloc.alloc(win.INPUT_RECORD, 256),
-            .stdout_file = stdout_file,
-            .bw = bw,
-            .stdin_file = stdin_file,
-            .br = br,
-            .stderr_file = stderr_file,
-            .log_file = log_file
-        };
-        term.initErr();
-        try term.switchTerminalBuffer();
-        
-        if(title) |str| {
-            try term.setTitle(str);
-        }
-        try term.rawPrint("{s}?3h", .{CSI});
-        try term.rawPrint("{s}?3l", .{CSI});
-        try term.refreshCursorState();
-
-        try term.flush();
-        return term;
+    pub fn init() !void {
+        _ = nc.setlocale(nc.LC_ALL, "");
+        _ = nc.initscr();
+        try tryCurses(nc.refresh());
+        try tryCurses(nc.raw());
+        try tryCurses(nc.noecho());
+        try tryCurses(nc.keypad(nc.stdscr, true));
+        try tryCurses(nc.nodelay(nc.stdscr, true));
+        try tryCurses(nc.cbreak());
     }
-    pub fn scrollDown(self: *Terminal, n: u32) !void {
-        try self.rawPrint("{s}{}S", .{CSI, n});
+
+    pub fn quit() void {
+        _ = nc.endwin();
+        std.debug.print("Quitting\n", .{});
     } 
-    pub fn setTextMode(self: *Terminal) !void {
-        self.textMode = true;
-        win.setTextMode(self.stdin_file.handle);
-    }
-
-    pub fn disableTextMode(self: *Terminal) !void {
-        self.textMode = false;
-        win.setInteractiveMode(self.stdin_file.handle);
-    }
-
-    pub fn readInputRawTextBlocking(self: *Terminal, alloc: std.mem.Allocator) ![]u8{
-        const buffer = try win.readConsole(alloc, self.stdin_file.handle, 1024);
-        return buffer; 
-    }
-    pub fn readInputRaw(self: *Terminal, alloc: std.mem.Allocator) !?[]u8 {
-        //const input_buffer = try self.br.reader().readUntilDelimiterOrEofAlloc(alloc, '\n', 100) orelse return;
-        //try self.rawPrint("{s}\n", .{input_buffer}); 
-        //const bytes_read = try self.stdin_file.read(&input_buffer);
-        //const buffer = try win.readConsole(alloc, self.stdin_file.handle, 1024);
-        const buffer = try win.peekConsoleInput(alloc, self.stdin_file.handle, self.inputBuffer);
-
-        return buffer; 
-    }
-
-    pub fn printExt(
-        self: *Terminal, 
-        position: ?common.Position, 
-        style: ?Format, 
-        comptime format: []const u8, 
-        args: anytype) !void {
-        if(position) |pos| {
-            try self.rawSetCursorPos(pos.y, pos.x);
-        }
-
-        if(style) |fmt| {
-            try self.setFormat(fmt);
-        }
-
-        try self.rawPrint(format, args);
-        //try self.refreshCursorState(); 
-
-        try self.resetFormat();
-        //try self.refreshCursorState();
-    }
-
-    pub fn printAt(
-        self: *Terminal, 
-        x: u32, 
-        y: u32,
-        comptime format: []const u8, 
-        args: anytype) !void {
-                    
-        const old_position = self.cursor.position;
-        try self.rawSetCursorPos(x, y);
-        try self.rawPrint(format, args); 
-        try self.rawSetCursorPos(old_position.x, old_position.y);
-    }
-
-    pub fn deleteLines(self: *Terminal, count: u32) !void {
-        try self.rawPrint("{s}{}M", .{CSI, count});
-    }
-    pub fn resetFormat(self: *Terminal) !void {
-        try self.rawPrint("{s}0m", .{CSI});
-    } 
-
-    pub fn setFormat(self: *Terminal, format: Format) !void {
-        const bold: u32 = if(format.bold) 1 else 22;
-        const underline: u32 = if(format.underline) 4 else 24;
-        const swapColors: u32 = if(format.swapColors) 7 else 27;
-
-        try self.rawPrint("{s}{};{};{};{};{}m", .{
-            CSI,
-            bold,
-            underline,
-            swapColors,
-            @as(u32, (@enumToInt(format.colorForeground) + 30)),
-            @as(u32, (@enumToInt(format.colorBackground) + 40)),
-        });
-
-    }
-
-    pub fn refreshCursorState(self: *Terminal) !void {
-        try self.rawSetCursorPos(self.cursor.position.x, self.cursor.position.y);
-
-        //try self.rawPrint("{s}?12{s}", .{CSI, if(self.cursor.blinking) "h" else "l"});
-        //try self.rawPrint("{s}25{s}", .{CSI, if(self.cursor.visible) "h" else "l"});
-    }
-
-
-    pub inline fn cursorMove(self: *Terminal, x: u32, y: u32) !void {
-        return self.setCursorPos(.{.x = self.cursor.position.x + x, .y = self.cursor.position.y + y});
-    }
-    pub inline fn setCursorPos(self: *Terminal, pos: common.Position) !void {
-        self.cursor.position = pos; 
-        try self.rawSetCursorPos(pos.x, pos.y);
-    }
-
-    pub fn initErr(self: *Terminal) void {
-        _ = win.SetConsoleCursorPosition(self.stderr_file.handle, .{.x = 1, .y = 10});
-        //_ = win.SetConsoleTextAttribute(self.stderr_file.handle, 0x0004 | 0x0020);
-        
-    }
-    pub inline fn rawSetCursorPos(self: *Terminal, x: u32, y: u32) !void {
-        _ = win.SetConsoleCursorPosition(self.stdout_file.handle, .{.x = @intCast(i16, x), .y = @intCast(i16, y)});
-    }
-
-    pub fn setTitle(self: *Terminal, title: []const u8) !void {
-        try self.rawPrint("{s}0;{s}{s}", .{OSC, title, ST});
-    } 
-
-    pub fn reset(self: *Terminal) !void {
-        try self.resetTerminalBuffer(); 
-        try self.softReset();
-        try self.clear();
-
-    }
-    
-    pub fn softReset(self: *Terminal) !void {
-        try self.rawPrint("{s}!p", .{CSI});
-    }
-
-    pub fn switchTerminalBuffer(self: *Terminal) !void {
-        try self.rawPrint("{s}?1049h",.{CSI});
-    }  
-
-    pub fn resetTerminalBuffer(self: *Terminal) !void {
-        try self.rawPrint("{s}?1049l", .{CSI});
-    } 
-
-    pub fn clear(self: *Terminal) !void {
-        try self.rawPrint("{s}2J", .{CSI});
-    }
-
-    pub inline fn rawPrint(self: *Terminal, comptime format: []const u8, args: anytype) !void {
-        try self.bw.writer().print(format, args);
-    }
-    pub inline fn logPrint(self: *Terminal, comptime format: []const u8, args: anytype) !void {
-        if(self.log_file) |log| {
-            try log.writer().print(format, args);
-        }
-    }
-    pub fn flush(self: *Terminal) !void {
-        try self.bw.flush();
-    }
 
 };
 
+pub const MenuOption = struct {
+    description: []const u8 
+};
+
+pub const MenuError = error {
+    SelectionOutOfBounds
+};
+
+pub fn MenuEntry(comptime T: type) type {
+    return struct {
+        name: [:0]const u8,
+        description: [:0]const u8 = "This is a long winded\ndescription", //TODO: Print struct info instead of this default
+        data: T
+    };
+} 
+
+pub fn MenuList(comptime T: type) type {
+    return struct {
+        const Self = @This();
+        entries: std.ArrayList(MenuEntry(T)),     
+        hovered_index: i32= 0,
+        selected_index: ?i32= null, 
+
+        pub fn init(alloc: std.mem.Allocator) Self {
+
+            return Self {
+                .entries = std.ArrayList(MenuEntry(T)).init(alloc) 
+            };     
+        }
+
+        pub fn clearEntries(self: *Self) !void {
+            self.hovered_index = 0;
+            self.selected_index = null;
+
+            self.entries.clearAndFree();
+        }
+
+        pub fn move(self: *Self, step: i32, max: u32) !void {
+            const new_pos = self.hovered_index + step;
+            if(new_pos >= 0 and new_pos < max)  {
+                self.hovered_index = new_pos;
+            } else {
+                return error.SelectionOutOfBounds;
+            }
+        }
+        
+        pub fn addEntry(self: *Self, entry: MenuEntry(T)) !void {
+            try self.entries.append(entry);
+        }
+        
+        pub inline fn selectedEntry(self: *Self) ?MenuEntry(T) {
+            if(self.selected_index) |i| {
+                if(self.entries.items.len > 0) {
+                    return self.entries.items[@intCast(usize, i)];
+                }
+            } 
+            return null;
+        }
+
+        pub inline fn hoveredEntry(self: *Self) MenuEntry(T) {
+            return self.entries.items[@intCast(usize, self.hovered_index)];
+        }
+        
+        pub fn getMinCharWidth(self: *Self, comptime field_name: []const u8) usize {
+            var max_len: usize = 0; 
+            for(self.entries.items) |e| {
+                const field = @field(e, field_name);
+
+                const name_len = field.len;
+                if(name_len > max_len){
+                    max_len = name_len; 
+                }
+            }
+            if(max_len == 0) {
+                return 8; 
+            }
+            return max_len;
+        }  
+    };
+}
+
+pub fn Vec2(comptime T: type) type {
+    return struct {
+        const Self = @This();
+
+        x: T,
+        y: T,
+
+        pub fn set1(n: T) Self {
+            return .{.x = n, .y = n};
+        }
+
+        pub fn zero() Self {
+            return .{.x = 0, .y = 0};
+        }
+
+        pub fn add(v1: Vec2(T), v2: Vec2(T)) Self {
+            return Self {
+                .x = v1.x + v2.x,
+                .y = v1.y + v2.y
+            };
+        }
+        pub fn sub(v1: Vec2(T), v2: Vec2(T)) Self {
+            return Self {
+                .x = v1.x - v2.x,
+                .y = v1.y - v2.y
+            };
+        }
+
+        pub fn addMut(self: *Self, other: Vec2(T)) void {
+            self.x += other.x;
+            self.y += other.y;
+        }
+
+    };
+}
+pub fn getScreenCenterX() i32 {
+    return @divTrunc(nc.COLS, 2);
+}
+
+pub fn drawTitle(title: [:0]const u8) !void {
+    try tryCurses(nc.move(0, getScreenCenterX() - 4));
+    try tryCurses(nc.printw(title.ptr));
+    try tryCurses(nc.move(0, 0));
+    try tryCurses(nc.chgat(-1, nc.A_REVERSE, 0, null));
+    try tryCurses(nc.refresh());
+}
+//TODO: Deal with magic numbers
+
+pub fn ChoiceBox(comptime T: type) type {
+    return struct {
+        const Self = @This();
+        title: [:0]const u8 = "ChoiceBox",
+        description: [:0]const u8 = "Select an item!", 
+        menu: MenuList(T),   
+        window: ?LayeredWindow = null, 
+        
+        initialSize: Vec2(i32) = Vec2(i32).set1(4),
+
+        size: Vec2(i32) = Vec2(i32).set1(0), 
+        pos: Vec2(i32) = Vec2(i32).set1(0),
+
+        descBoxOffset: Vec2(i32) = Vec2(i32).set1(0),
+        descBoxSize: Vec2(i32) = Vec2(i32).set1(0),
+        descBoxWindow: ?LayeredWindow = null,
+
+        open: bool = true,
+        visible: bool = false, 
+
+        maxEntries: usize = 15,
+
+        pagePos: usize = 1,
+
+        pub fn autoScale(self: *Self) void {
+            self.size.x =  @intCast(i32, self.menu.getMinCharWidth("name")) + 10;
+
+            self.size.y = @intCast(i32, self.maxEntries + 3);
+            self.descBoxSize.y = self.size.y; 
+            self.descBoxSize.x = @intCast(i32, self.menu.getMinCharWidth("description")); 
+
+            if(self.visible) {
+                self.window.?.resize(self.size) catch unreachable;
+                self.descBoxWindow.?.resize(self.descBoxSize) catch unreachable;
+            }
+        } 
+        
+        pub fn center(self: *Self) void {
+            self.pos.x = @divTrunc((nc.COLS - @intCast(c_int, self.size.x)), 2);
+            self.pos.y = @divTrunc((nc.LINES - @intCast(c_int, self.size.y)), 2);
+            self.descBoxOffset.x = 5;             
+        }
+        
+        pub fn left_align(self: *Self) void {
+            self.pos.x = 0;
+            self.pos.y = 1;
+        }
+        
+        //TODO: Make menu a ptr maybe
+        pub fn init(menu: MenuList(T), visible: bool) !Self {
+            var box = Self {
+                .menu = menu,
+            };
+
+            box.autoScale();
+            box.left_align();
+
+            if(visible) {
+                try box.show();
+            }
+
+            return box;
+        }
+
+        pub fn show(self: *Self) !void {
+            self.autoScale();
+
+            if(!self.visible) {
+                self.window = try LayeredWindow.new(self.size, self.pos, null);
+                var descBoxPos: Vec2(i32) = Vec2(i32).add(self.pos,self.descBoxOffset);  
+                descBoxPos.x += self.size.x + 3;
+                self.descBoxWindow = try LayeredWindow.new(self.descBoxSize, descBoxPos, null);
+
+                try tryCurses(nc.keypad(self.window.?.win, true));
+                try tryCurses(nc.nodelay(self.window.?.win, true));
+                try self.drawEntries();
+                try self.drawBorder();
+                try self.drawTitle();
+                self.visible= true;
+            }     
+            try self.window.?.refresh();
+        }
+
+        pub fn drawBorder(self: *Self) !void {
+            try self.window.?.drawBorder();
+            try self.descBoxWindow.?.drawBorder();
+        }
+        
+        
+        pub fn drawTitle(self: *Self) !void {
+            try tryCurses(nc.mvwprintw(self.window.?.outer, 0, 1, "🪟 %s", self.title.ptr));
+            try tryCurses(nc.mvwprintw(self.descBoxWindow.?.outer, 0, 0, "❓ Info"));
+
+            try self.window.?.refresh();
+            try self.descBoxWindow.?.refresh();
+
+        }
+
+        pub fn drawEntries(self: *Self) !void {
+            const entry_count = self.menu.entries.items.len;
+            
+            const start = self.pageStartPos(); 
+            const max = std.math.min((self.pagePos * self.maxEntries), entry_count);  
+
+            for(start..max) |i|{
+                const entry = self.menu.entries.items[i];
+                if(i == self.menu.hovered_index) {
+                    try tryCurses(nc.wattron(self.window.?.win, nc.A_STANDOUT)); 
+                    try tryCurses(nc.wclear(self.descBoxWindow.?.win));
+
+                    try tryCurses(nc.mvwprintw(self.descBoxWindow.?.win, 0, 0, "%s", entry.description.ptr));
+
+                    try tryCurses(nc.wrefresh(self.descBoxWindow.?.outer)); 
+
+                    try self.descBoxWindow.?.refresh();
+                    try self.window.?.refresh();
+
+                } else {
+                    try tryCurses(nc.wattroff(self.window.?.win, nc.A_STANDOUT)); 
+
+                }
+                try tryCurses(nc.mvwprintw(self.window.?.win, @intCast(c_int, i), 0, "%s", entry.name.ptr));
+            }
+            try self.window.?.refresh();
+        }
+
+        pub fn switchPage(self: *Self) !void {
+            const entry_count = self.menu.entries.items.len;
+            const current_max = ((self.pagePos) * self.maxEntries);
+
+            if(current_max >= entry_count) {
+                if(self.pagePos > 0) {
+                    self.pagePos -= 1;
+                    try self.window.?.clear();
+                    try self.drawEntries();
+                }    
+            } else {
+                self.pagePos += 1; 
+                try self.window.?.clear();
+                try self.drawEntries();
+            } 
+        }
+        pub inline fn pageStartPos(self: *Self) usize {
+            if(self.pagePos <= 0) 
+                return 0;
+            return (self.pagePos - 1) * self.maxEntries;
+        }
+        pub inline fn entryCount(self: *Self) usize {
+            return self.menu.entries.items.len;
+        }
+        pub fn move(self: *Self, step: i32) !void {
+            if(self.menu.entries.items.len > 0) {
+                const new_pos = self.menu.hovered_index + step;
+                const max = std.math.min(self.pagePos * self.maxEntries, self.entryCount());
+
+                if(new_pos >= self.pageStartPos() and new_pos < max)  {
+                    self.menu.hovered_index = new_pos;
+                } else {
+                    return error.SelectionOutOfBounds;
+                }
+            }
+        }
+        //TODO: Avoid duplication here
+        pub fn run(self: *Self) !?T {
+            while(self.open) {
+                const char_down = nc.wgetch(self.window.?.win);
+                if(char_down == 'q') {
+                    self.open = false;
+                    break;
+                } 
+                else if(char_down == 's') {
+                    self.move(1) catch {};
+                    try self.drawEntries();
+                }
+
+                else if(char_down == 'w') {
+                    self.move(-1) catch {};
+                    try self.drawEntries();
+                }
+
+                else if(char_down == 'c') {
+                    self.open = false;
+                    self.menu.selected_index = self.menu.hovered_index;
+                    return self.menu.selectedEntry().?.data;
+                }
+                else if(char_down == 'p') {
+                    try self.switchPage();
+                    self.menu.hovered_index = @intCast(i32, self.pageStartPos());
+                    try self.drawEntries();
+                }
+                std.time.sleep(std.time.ns_per_ms * 30);
+            }
+            return null;
+        }
+
+        pub const UserInput = union(enum) {
+            data: T,
+            quit: void,
+            key: i32
+        };  
+
+        pub fn handleInput(self: *Self) !?UserInput  {
+            const char_down = nc.wgetch(self.window.?.win);
+
+            if(char_down == nc.ERR) {
+                return null;
+            }
+
+            if(char_down == 'q') {
+                self.open = false;
+                return UserInput.quit;
+            } 
+
+            else if(char_down == 's') {
+                self.move(1) catch {};
+                try self.drawEntries();
+            }
+
+            else if(char_down == 'w') {
+                self.move(-1) catch {};
+                try self.drawEntries();
+            }
+
+            else if(char_down == 'c') {
+                self.menu.selected_index = self.menu.hovered_index;
+                if(self.menu.selectedEntry()) |entry| {
+                    return UserInput {.data = entry.data};
+                }
+            }
+
+            else if(char_down == 'p') {
+                try self.switchPage();
+                self.menu.hovered_index = @intCast(i32, self.pageStartPos());
+                try self.drawEntries();
+            }
+            return UserInput {.key = char_down};
+        }
+
+        pub fn close(self: *Self) void {
+            if(self.visible) {
+                self.window.?.close();
+                self.descBoxWindow.?.close();
+                
+                self.window = null;
+                self.descBoxWindow = null;
+                self.visible= false;
+            }
+        }
+    };
+}
+
+pub const LayeredWindow = struct {
+    win: *nc.WINDOW,
+    outer: *nc.WINDOW,
+
+    pub fn new(size: Vec2(i32), position: Vec2(i32), offset: ?Vec2(i32)) !LayeredWindow {
+        const inner_offset = offset orelse Vec2(i32).set1(2);
+
+        const outer_window = try new_window(Vec2(i32).add(size, inner_offset), position); 
+        var border: i32 = 1; //TODO: Actual val
+        const inner_window = try new_window(size, Vec2(i32).add(position, Vec2(i32).set1(border)));
+
+
+        return LayeredWindow {
+            .win = inner_window,
+            .outer = outer_window
+        };
+    }
+
+    pub fn refresh(self: *LayeredWindow) !void {
+        try tryCurses(nc.wrefresh(self.win));
+        try tryCurses(nc.wrefresh(self.outer));
+    }
+
+    pub fn drawBorder(self: *LayeredWindow) !void {
+        try tryCurses(nc.box(self.outer, 0,0));
+        try tryCurses(nc.wrefresh(self.outer));
+    }
+    pub fn clear(self: *LayeredWindow) !void {
+        try tryCurses(nc.wclear(self.win));
+        try self.refresh();
+    }
+
+    pub fn delBorder(self: *LayeredWindow) !void {
+        try tryCurses(nc.wborder(self.outer, ' ', ' ', ' ',' ',' ',' ',' ',' ')); 
+        try tryCurses(nc.wrefresh(self.outer));
+    }
+
+    pub fn close(self: *LayeredWindow) void {
+        tryCurses(nc.wborder(self.outer, ' ', ' ', ' ',' ',' ',' ',' ',' ')) catch unreachable;
+        self.clear() catch unreachable;
+        _ = nc.wclear(self.outer);
+        self.refresh() catch unreachable;
+        _ = nc.wrefresh(self.outer);
+        _ = nc.delwin(self.outer);
+        _ = nc.delwin(self.win);
+    }
+
+    pub fn resize(self: *LayeredWindow, new_size: Vec2(i32)) !void {
+        const inner_offset = Vec2(i32).set1(2);
+        const inner_new_size = Vec2(i32).sub(new_size, inner_offset);
+        try self.delBorder();
+        
+
+        try self.clear();
+        try tryCurses(nc.wclear(self.outer));
+        try tryCurses(nc.wresize(self.outer, @intCast(c_int, new_size.y), @intCast(c_int, new_size.x)));
+        try tryCurses(nc.wresize(self.win, @intCast(c_int, inner_new_size.y), @intCast(c_int, inner_new_size.x)));
+
+        try self.drawBorder();
+        try self.refresh();
+    } 
+}; 
+
+pub fn new_window(size: Vec2(i32), position: Vec2(i32)) !*nc.WINDOW {
+    var wnd_ptr: *nc.WINDOW = nc.newwin(@intCast(c_int, size.y), @intCast(c_int, size.x), @intCast(c_int, position.y), @intCast(c_int, position.x)) orelse return error.RoutineReturnedError;
+    return wnd_ptr;
+}
+
+pub const DebugWindow = struct {
+    window: LayeredWindow,
+    alloc: std.mem.Allocator,
+    
+
+    pub fn init(alloc: std.mem.Allocator) !DebugWindow {
+        const position = Vec2(i32) {.x = 0, .y = nc.LINES - @divTrunc(nc.LINES, 2)};
+        const size = Vec2(i32) {.x = nc.COLS - 2, .y = (nc.LINES - position.y) - 2};
+
+        var window = try LayeredWindow.new(size, position, null);
+        try window.drawBorder(); 
+
+        return .{
+            .window = window,
+            .alloc = alloc
+        };
+    }
+
+    pub fn print(self: *DebugWindow, comptime fmt: []const u8, args: anytype) void {
+        //TODO: Handle scrolling
+        const buffer = std.fmt.allocPrintZ(self.alloc, fmt, args) catch |e| {
+            std.debug.print("error: {}\n", .{e});
+            unreachable;
+        };
+        tryCurses(nc.wprintw(self.window.win, "[log] %s", buffer.ptr)) catch unreachable;
+        self.window.refresh() catch unreachable;
+    }
+    
+    pub fn clear(self: *DebugWindow) void {
+        self.window.clear() catch unreachable;
+    }
+};

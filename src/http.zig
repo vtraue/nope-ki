@@ -16,7 +16,7 @@ fn c_bool(val: bool) c_ulong {
 }
 fn tryCurl(code: c.CURLcode) CurlError!void {
     if(code != c.CURLE_OK) {
-        std.debug.print("Unable to do curl op, error code: {}", .{code});
+        //std.debug.print("Unable to do curl op, error code: {}", .{code});
         return error.UnableToSetOption;
     }
 }
@@ -78,7 +78,7 @@ pub const Response = struct {
     data: std.ArrayList(u8),
     
     pub fn from_curl(curl: *CurlHandle, data: std.ArrayList(u8)) !Response {
-        std.debug.print("parsing response\n", .{});
+        //std.debug.print("parsing response\n", .{});
         var response: Response = undefined;
 
         var content_type_str: [*c]u8 = undefined;
@@ -89,19 +89,19 @@ pub const Response = struct {
         response.content_type = std.mem.span(content_type_str);
 
         response.data = data;
-        std.debug.print("response: {}\n", .{response});
-        std.debug.print("done\n", .{});
+        //std.debug.print("response: {}\n", .{response});
+        //std.debug.print("done\n", .{});
         return response;
 
     }
 };
 fn write_to_array_list_callback(data: *anyopaque, size: c_uint, nmemb: c_uint, user_data: *anyopaque) callconv(.C) c_uint{
-    std.debug.print("writing\n", .{});
+    //std.debug.print("writing\n", .{});
     var buffer = @intToPtr(*std.ArrayList(u8), @ptrToInt(user_data));
     var real_data = @intToPtr([*]u8, @ptrToInt(data));
 
     buffer.appendSlice(real_data[0.. nmemb * size]) catch return 0;
-    std.debug.print("writing done\n", .{});
+    //std.debug.print("writing done\n", .{});
     return nmemb * size;
 }
 
@@ -190,7 +190,7 @@ pub const CurlHandle = struct {
         request.header_list = c.curl_slist_append(request.header_list, contet_type_string.ptr);
 
         if (request.header_list == null) {
-            std.debug.print("Header list broken\n", .{});
+            //std.debug.print("Header list broken\n", .{});
         }
 
         var response_buffer = std.ArrayList(u8).init(alloc);

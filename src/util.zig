@@ -27,7 +27,15 @@ pub const RustString = struct {
         return RustString {.inner = string};
     } 
 
-    pub fn as_string_slice(self: *const RustString) []u8 {
+    pub fn to_str(self: *const RustString, alloc: std.mem.Allocator) ![]u8 {
+        const actual_str = try alloc.alloc(u8, self.str().len);
+        @memcpy(actual_str,  self.str().ptr); 
+        return actual_str; 
+    }
+    pub inline fn as_string_slice(self: *const RustString) []u8 {
+        return @ptrCast([*]u8, self.inner.buf)[0..self.inner.len];
+    }
+    pub inline fn str(self: *const RustString) []u8 {
         return @ptrCast([*]u8, self.inner.buf)[0..self.inner.len];
     }
     pub fn as_mem_slice(self: *const RustString) []u8 {
